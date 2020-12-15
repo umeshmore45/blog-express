@@ -6,6 +6,7 @@ class Taskcontroller {
     switch (source) {
       case "dataBase":
         this.getAlltask = dbController.getAlltask(req, res, next);
+        console.log("Using DataBase");
         break;
       case "file":
         this.getAlltask = fileController.getAlltask(req, res, next);
