@@ -17,6 +17,7 @@ mongoose
   .then(() => {
     const app = express();
     app.use(cors());
+    app.use(express.json());
     app.use("/blog", blogRouter);
     app.listen(process.env.PORT, () => {
       console.log(`On Port ${process.env.PORT}`);
