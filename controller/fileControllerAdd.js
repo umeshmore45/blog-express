@@ -5,6 +5,23 @@ const fileName = path.join(__dirname, "..", "data", "data.json");
 const dataBlog = JSON.parse(fs.readFileSync(fileName, "utf-8"));
 
 const AddBlog = (req, res, next) => {
+  const validationArray = [
+    "id",
+    "author",
+    "title",
+    "content",
+    "links",
+    "imageUrl",
+  ];
+
+  let result = validationArray.every((key) => {
+    return req.body[key];
+  });
+
+  if (!result) {
+    return res.status(406).send("Not valid");
+  }
+
   let newTask = new AddBlogClass(
     req.body.id,
     req.body.author,
