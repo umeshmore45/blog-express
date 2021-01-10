@@ -5,6 +5,7 @@ const getAlltask = (req, res, next) => {
   try {
     Task.find(req.query)
       .then((data) => {
+        console.log(data);
         res.send(data);
       })
       .catch((err) => {
